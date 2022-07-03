@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "christian-metzner-storefront",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Headless storefront with GatsbyJS",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Owen Hoskins <owen.hoskins@gmail.com>",
   "dependencies": {
     "gatsby": "^4.17.2",
     "gatsby-plugin-gatsby-cloud": "^4.17.0",
