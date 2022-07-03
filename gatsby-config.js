@@ -1,9 +1,11 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Christian Metzner`,
+    description: ``,
+    author: `@owenhoskins`,
+    siteUrl: `https://christian-metzner.netlify.app/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,6 +19,30 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        password: process.env.SHOPIFY_ADMIN_ACCESS_TOKEN, // Admin API access token
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL
+      },
+    },
+    {
+      resolve: `gatsby-source-shopify-translations`,
+      options: {
+        // url of your shopify store. Example: mysite.myshopify.com
+        shopName: process.env.GATSBY_SHOPIFY_STORE_URL,
+        // password of your shopify store (Admin API access token)
+        shopifyPassword: process.env.SHOPIFY_ADMIN_ACCESS_TOKEN,
+        // access token of your shopify store (Storefront API access token)
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
+        defaultLang: `en`,
+        prefixDefault: false,
+        // configPath: require.resolve("./locales/config.json"),
+        locales: [`en`, `gb`],
+        waitingGatsbySourceShopify: 5000,
+        sourceOnlyMode: true
+      },
+    },
     /*{
       resolve: `gatsby-plugin-manifest`,
       options: {
